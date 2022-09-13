@@ -50,11 +50,34 @@ public class FXMLController {
 
     @FXML
     void doCreaGrafo(ActionEvent event) {
+    	txtResult.clear();
     	
+    	String nrank= txtRank.getText();
+    	double rank;
+    	
+    	try {
+			   rank= Double.parseDouble(nrank);
+		   } catch(NumberFormatException ne) {
+			   txtResult.appendText("i rank devono essere un numero");
+			   return;
+		   }
+    	
+    	if (rank >= 0.0 && rank <= 10.0) {
+    	this.model.creaGrafo(rank);
+    	
+		   txtResult.appendText("grafo creato: "+"\n");
+		   txtResult.appendText("# VERTICI: "+this.model.nVertici()+"\n");
+		   txtResult.appendText("# ARCHI: "+this.model.nArchi()+"\n");
+		   
+    	}
+    	else txtResult.appendText("inserire un rank tra zero e dieci");
     }
 
     @FXML
     void doGradoMax(ActionEvent event) {
+    	
+    	
+    	txtResult.appendText(model.filmGradoMax());
     	
     }
 
