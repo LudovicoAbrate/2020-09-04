@@ -16,6 +16,10 @@ import it.polito.tdp.imdb.model.Movie;
 public class ImdbDAO {
 	
 	public List<Actor> listAllActors(){
+		
+		
+		
+		
 		String sql = "SELECT * FROM actors";
 		List<Actor> result = new ArrayList<Actor>();
 		Connection conn = DBConnect.getConnection();
